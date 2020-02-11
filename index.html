@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Covid-19 Monitor</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="glass-header">
+        <div class="logo">
+          <span class="pulse-icon">🦠</span>
+          <h1>Pandemic<span class="highlight">Pulse</span></h1>
+        </div>
+        <div class="controls">
+          <div class="date-display" id="current-date">Feb 14, 2020</div>
+          <button class="theme-toggle" aria-label="Toggle Dark Mode">☾</button>
+        </div>
+      </header>
+
+      <main class="dashboard-grid">
+        <aside class="stats-panel glass-panel">
+          <div class="global-stats">
+            <h2>Global Totals</h2>
+            <div class="stat-card danger">
+              <h3>Confirmed Cases</h3>
+              <p class="count" id="total-cases">0</p>
+            </div>
+            <div class="stat-card warning">
+              <h3>Active</h3>
+              <p class="count" id="active-cases">0</p>
+            </div>
+            <div class="stat-card success">
+              <h3>Recovered</h3>
+              <p class="count" id="recovered-cases">0</p>
+            </div>
+            <div class="stat-card fatal">
+              <h3>Deaths</h3>
+              <p class="count" id="deaths">0</p>
+            </div>
+          </div>
+
+          <div class="country-list-container">
+            <div class="search-box">
+              <input type="text" id="country-search" placeholder="Search country..." />
+            </div>
+            <h3>Affected Countries</h3>
+            <ul class="country-list" id="country-list">
+              <!-- Items injected via JS -->
+            </ul>
+          </div>
+        </aside>
+
+        <section class="map-section glass-panel">
+          <div id="world-map"></div>
+          <div id="map-tooltip" class="tooltip"></div>
+          <div class="timeline-controls">
+            <button id="play-pause" class="btn-icon">▶</button>
+            <input
+              type="range"
+              id="timeline-slider"
+              min="0"
+              max="100"
+              value="0"
+            />
+          </div>
+        </section>
+
+        <aside class="charts-panel glass-panel">
+          <h2>Spread Trends</h2>
+          <canvas id="trendBox1"></canvas>
+          <div class="spacer"></div>
+          <h2>Recovery Rate</h2>
+          <canvas id="trendBox2"></canvas>
+        </aside>
+      </main>
+      <footer class="news-ticker">
+        <div class="ticker-label">BREAKING NEWS</div>
+        <div class="ticker-wrap">
+          <div class="ticker-content">
+            <span>WHO declares Global Health Emergency...</span>
+            <span>Diamond Princess cruise ship quarantined in Japan...</span>
+            <span>Italy implements lockdown in northern regions...</span>
+            <span>First cases confirmed in New York City...</span>
+            <span>Markets experience largest single-day drop since 1987...</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/theme.js"></script>
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
