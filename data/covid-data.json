@@ -1,0 +1,41 @@
+[
+  {
+    "date": "2020-01-22",
+    "global": { "cases": 555, "deaths": 17, "recovered": 28 },
+    "countries": [
+      { "id": "CHN", "name": "China", "cases": 548, "deaths": 17 },
+      { "id": "JPN", "name": "Japan", "cases": 2, "deaths": 0 },
+      { "id": "KOR", "name": "South Korea", "cases": 1, "deaths": 0 },
+      { "id": "THA", "name": "Thailand", "cases": 2, "deaths": 0 },
+      { "id": "USA", "name": "USA", "cases": 1, "deaths": 0 }
+    ]
+  },
+  {
+    "date": "2020-01-23",
+    "global": { "cases": 654, "deaths": 18, "recovered": 30 },
+    "countries": [
+      { "id": "CHN", "name": "China", "cases": 643, "deaths": 18 },
+      { "id": "JPN", "name": "Japan", "cases": 2, "deaths": 0 },
+      { "id": "USA", "name": "USA", "cases": 1, "deaths": 0 }
+    ]
+  },
+  {
+    "date": "2020-02-14",
+    "global": { "cases": 67000, "deaths": 1526, "recovered": 8000 },
+    "countries": [
+      { "id": "CHN", "name": "China", "cases": 66492, "deaths": 1523 },
+      { "id": "JPN", "name": "Japan", "cases": 250, "deaths": 1 },
+      { "id": "SGP", "name": "Singapore", "cases": 67, "deaths": 0 }
+    ]
+  },
+  {
+    "date": "2020-03-01",
+    "global": { "cases": 88000, "deaths": 2900, "recovered": 42000 },
+    "countries": [
+      { "id": "CHN", "name": "China", "cases": 80000, "deaths": 2800 },
+      { "id": "ITA", "name": "Italy", "cases": 1694, "deaths": 34 },
+      { "id": "IRN", "name": "Iran", "cases": 978, "deaths": 54 },
+      { "id": "KOR", "name": "South Korea", "cases": 3736, "deaths": 21 }
+    ]
+  }
+]
