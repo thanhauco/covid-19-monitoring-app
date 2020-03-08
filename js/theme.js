@@ -15,7 +15,7 @@ class ThemeManager {
     
     applyTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
-        // this.toggleBtn.textContent = theme === 'dark' ? '☀' : '☾'; // BUG: icon doesn't change
+        this.toggleBtn.textContent = theme === 'dark' ? '☀' : '☾';
         this.currentTheme = theme;
         localStorage.setItem(this.themeKey, theme);
     }
