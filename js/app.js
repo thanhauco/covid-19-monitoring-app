@@ -286,6 +286,127 @@ document.addEventListener("DOMContentLoaded", async () => {
     updateDashboard(currentIndex);
   });
 
+  // === NEW FEATURES ===
+  
+  // Modal Elements
+  const modal = document.getElementById("country-modal");
+  const modalClose = document.querySelector(".modal-close");
+  const modalCountryName = document.getElementById("modal-country-name");
+  const modalCases = document.getElementById("modal-cases");
+  const modalRecovered = document.getElementById("modal-recovered");
+  const modalDeaths = document.getElementById("modal-deaths");
+  let modalChart = null;
+
+  function openModal(countryId) {
+    const entry = data[currentIndex];
+    const country = entry.countries.find(c => c.id === countryId);
+    if (!country) return;
+
+    modalCountryName.textContent = country.name;
+    modalCases.textContent = formatNum(country.cases);
+    modalRecovered.textContent = formatNum(country.recovered || 0);
+    modalDeaths.textContent = formatNum(country.deaths || 0);
+
+    // Initialize or update modal chart
+    const ctx = document.getElementById("modal-trend-chart").getContext("2d");
+    const countryHistory = data.map(d => {
+      const c = d.countries.find(x => x.id === countryId);
+      return c ? c.cases : 0;
+    });
+    
+    if (modalChart) {
+      modalChart.data.labels = data.map(d => d.date);
+      modalChart.data.datasets[0].data = countryHistory;
+      modalChart.update();
+    } else {
+      modalChart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: data.map(d => d.date),
+          datasets: [{
+            label: "Cases",
+            data: countryHistory,
+            borderColor: "#ef4444",
+            borderWidth: 2,
+            fill: true,
+            backgroundColor: "rgba(239, 68, 68, 0.1)"
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: { x: { display: false }, y: { display: false } }
+        }
+      });
+    }
+
+    modal.classList.add("active");
+  }
+
+  function closeModal() {
+    modal.classList.remove("active");
+  }
+
+  modalClose.addEventListener("click", closeModal);
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  // Make country list items clickable
+  countryList.addEventListener("click", (e) => {
+    const item = e.target.closest(".country-item");
+    if (item) {
+      const countryName = item.querySelector(".country-name").textContent;
+      const entry = data[currentIndex];
+      const country = entry.countries.find(c => c.name === countryName);
+      if (country) openModal(country.id);
+    }
+  });
+
+  // Fullscreen Toggle
+  const fullscreenBtn = document.getElementById("fullscreen-toggle");
+  const mapSection = document.querySelector(".map-section");
+
+  fullscreenBtn.addEventListener("click", () => {
+    mapSection.classList.toggle("fullscreen-mode");
+    fullscreenBtn.textContent = mapSection.classList.contains("fullscreen-mode") ? "✕" : "⛶";
+  });
+
+  // Keyboard Shortcuts
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeModal();
+      mapSection.classList.remove("fullscreen-mode");
+      fullscreenBtn.textContent = "⛶";
+    }
+    if (e.key === " " || e.key === "Space") {
+      e.preventDefault();
+      togglePlay();
+    }
+    if (e.key === "ArrowRight" && currentIndex < data.length - 1) {
+      currentIndex++;
+      slider.value = currentIndex;
+      updateDashboard(currentIndex);
+    }
+    if (e.key === "ArrowLeft" && currentIndex > 0) {
+      currentIndex--;
+      slider.value = currentIndex;
+      updateDashboard(currentIndex);
+    }
+    if (e.key === "f" || e.key === "F") {
+      mapSection.classList.toggle("fullscreen-mode");
+      fullscreenBtn.textContent = mapSection.classList.contains("fullscreen-mode") ? "✕" : "⛶";
+    }
+  });
+
+  // Splash Screen
+  const splash = document.getElementById("splash-screen");
+  setTimeout(() => {
+    splash.classList.add("hidden");
+  }, 2000);
+
   // Initial Load
   updateDashboard(0);
 });
+
