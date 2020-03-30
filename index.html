@@ -70,6 +70,7 @@
               max="100"
               value="0"
             />
+            <button id="fullscreen-toggle" class="btn-icon" title="Toggle Fullscreen">⛶</button>
           </div>
         </section>
 
@@ -93,6 +94,44 @@
           </div>
         </div>
       </footer>
+      
+      <!-- Country Detail Modal -->
+      <div id="country-modal" class="modal-overlay">
+        <div class="modal-content glass-panel">
+          <button class="modal-close">&times;</button>
+          <div class="modal-header">
+            <h2 id="modal-country-name">Country Name</h2>
+            <span id="modal-flag" class="flag-icon"></span>
+          </div>
+          <div class="modal-stats">
+            <div class="modal-stat danger">
+              <span class="label">Confirmed</span>
+              <span class="value" id="modal-cases">0</span>
+            </div>
+            <div class="modal-stat success">
+              <span class="label">Recovered</span>
+              <span class="value" id="modal-recovered">0</span>
+            </div>
+            <div class="modal-stat fatal">
+              <span class="label">Deaths</span>
+              <span class="value" id="modal-deaths">0</span>
+            </div>
+          </div>
+          <div class="modal-chart">
+            <canvas id="modal-trend-chart"></canvas>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Intro Splash -->
+      <div id="splash-screen" class="splash-overlay">
+        <div class="splash-content">
+          <span class="splash-icon">🦠</span>
+          <h1>Pandemic<span class="highlight">Pulse</span></h1>
+          <p>Real-time COVID-19 Global Monitoring</p>
+          <div class="splash-loader"></div>
+        </div>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
