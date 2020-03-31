@@ -257,6 +257,16 @@ document.addEventListener("DOMContentLoaded", async () => {
       entry.global.recovered,
       500
     );
+    
+    // Calculate and display active cases
+    const activeEl = document.getElementById("active-cases");
+    const activeCases = entry.global.cases - entry.global.deaths - entry.global.recovered;
+    animateValue(
+      activeEl,
+      parseInt(activeEl.innerText.replace(/,/g, "")) || 0,
+      activeCases,
+      500
+    );
 
     // Update Charts
     const history = data.slice(0, index + 1);
