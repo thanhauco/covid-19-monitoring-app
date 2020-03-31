@@ -3,39 +3,106 @@
     "date": "2020-01-22",
     "global": { "cases": 555, "deaths": 17, "recovered": 28 },
     "countries": [
-      { "id": "CHN", "name": "China", "cases": 548, "deaths": 17 },
-      { "id": "JPN", "name": "Japan", "cases": 2, "deaths": 0 },
-      { "id": "KOR", "name": "South Korea", "cases": 1, "deaths": 0 },
-      { "id": "THA", "name": "Thailand", "cases": 2, "deaths": 0 },
-      { "id": "USA", "name": "USA", "cases": 1, "deaths": 0 }
+      { "id": "CHN", "name": "China", "cases": 548, "deaths": 17, "recovered": 28 },
+      { "id": "JPN", "name": "Japan", "cases": 2, "deaths": 0, "recovered": 0 },
+      { "id": "KOR", "name": "South Korea", "cases": 1, "deaths": 0, "recovered": 0 },
+      { "id": "THA", "name": "Thailand", "cases": 2, "deaths": 0, "recovered": 0 },
+      { "id": "USA", "name": "USA", "cases": 1, "deaths": 0, "recovered": 0 }
     ]
   },
   {
-    "date": "2020-01-23",
-    "global": { "cases": 654, "deaths": 18, "recovered": 30 },
+    "date": "2020-01-28",
+    "global": { "cases": 5578, "deaths": 131, "recovered": 107 },
     "countries": [
-      { "id": "CHN", "name": "China", "cases": 643, "deaths": 18 },
-      { "id": "JPN", "name": "Japan", "cases": 2, "deaths": 0 },
-      { "id": "USA", "name": "USA", "cases": 1, "deaths": 0 }
+      { "id": "CHN", "name": "China", "cases": 5509, "deaths": 131, "recovered": 101 },
+      { "id": "JPN", "name": "Japan", "cases": 7, "deaths": 0, "recovered": 1 },
+      { "id": "THA", "name": "Thailand", "cases": 14, "deaths": 0, "recovered": 5 },
+      { "id": "SGP", "name": "Singapore", "cases": 7, "deaths": 0, "recovered": 0 },
+      { "id": "USA", "name": "USA", "cases": 5, "deaths": 0, "recovered": 0 },
+      { "id": "AUS", "name": "Australia", "cases": 5, "deaths": 0, "recovered": 0 },
+      { "id": "DEU", "name": "Germany", "cases": 4, "deaths": 0, "recovered": 0 },
+      { "id": "FRA", "name": "France", "cases": 4, "deaths": 0, "recovered": 0 }
     ]
   },
   {
     "date": "2020-02-14",
-    "global": { "cases": 67000, "deaths": 1526, "recovered": 8000 },
+    "global": { "cases": 67100, "deaths": 1526, "recovered": 8058 },
     "countries": [
-      { "id": "CHN", "name": "China", "cases": 66492, "deaths": 1523 },
-      { "id": "JPN", "name": "Japan", "cases": 250, "deaths": 1 },
-      { "id": "SGP", "name": "Singapore", "cases": 67, "deaths": 0 }
+      { "id": "CHN", "name": "China", "cases": 66492, "deaths": 1523, "recovered": 8000 },
+      { "id": "JPN", "name": "Japan", "cases": 252, "deaths": 1, "recovered": 22 },
+      { "id": "SGP", "name": "Singapore", "cases": 67, "deaths": 0, "recovered": 17 },
+      { "id": "KOR", "name": "South Korea", "cases": 28, "deaths": 0, "recovered": 7 },
+      { "id": "ITA", "name": "Italy", "cases": 3, "deaths": 0, "recovered": 0 },
+      { "id": "USA", "name": "USA", "cases": 15, "deaths": 0, "recovered": 3 },
+      { "id": "DEU", "name": "Germany", "cases": 16, "deaths": 0, "recovered": 1 },
+      { "id": "GBR", "name": "United Kingdom", "cases": 9, "deaths": 0, "recovered": 1 }
     ]
   },
   {
-    "date": "2020-03-01",
-    "global": { "cases": 88000, "deaths": 2900, "recovered": 42000 },
+    "date": "2020-02-29",
+    "global": { "cases": 85403, "deaths": 2924, "recovered": 39782 },
     "countries": [
-      { "id": "CHN", "name": "China", "cases": 80000, "deaths": 2800 },
-      { "id": "ITA", "name": "Italy", "cases": 1694, "deaths": 34 },
-      { "id": "IRN", "name": "Iran", "cases": 978, "deaths": 54 },
-      { "id": "KOR", "name": "South Korea", "cases": 3736, "deaths": 21 }
+      { "id": "CHN", "name": "China", "cases": 79356, "deaths": 2837, "recovered": 39002 },
+      { "id": "KOR", "name": "South Korea", "cases": 3150, "deaths": 17, "recovered": 28 },
+      { "id": "ITA", "name": "Italy", "cases": 1128, "deaths": 29, "recovered": 46 },
+      { "id": "IRN", "name": "Iran", "cases": 593, "deaths": 43, "recovered": 123 },
+      { "id": "JPN", "name": "Japan", "cases": 239, "deaths": 5, "recovered": 32 },
+      { "id": "FRA", "name": "France", "cases": 100, "deaths": 2, "recovered": 12 },
+      { "id": "DEU", "name": "Germany", "cases": 79, "deaths": 0, "recovered": 16 },
+      { "id": "USA", "name": "USA", "cases": 68, "deaths": 1, "recovered": 5 },
+      { "id": "ESP", "name": "Spain", "cases": 45, "deaths": 0, "recovered": 2 }
+    ]
+  },
+  {
+    "date": "2020-03-11",
+    "global": { "cases": 125048, "deaths": 4613, "recovered": 67003 },
+    "countries": [
+      { "id": "CHN", "name": "China", "cases": 80793, "deaths": 3169, "recovered": 61475 },
+      { "id": "ITA", "name": "Italy", "cases": 12462, "deaths": 827, "recovered": 1045 },
+      { "id": "IRN", "name": "Iran", "cases": 9000, "deaths": 354, "recovered": 2959 },
+      { "id": "KOR", "name": "South Korea", "cases": 7755, "deaths": 60, "recovered": 288 },
+      { "id": "FRA", "name": "France", "cases": 2281, "deaths": 48, "recovered": 12 },
+      { "id": "ESP", "name": "Spain", "cases": 2277, "deaths": 55, "recovered": 183 },
+      { "id": "DEU", "name": "Germany", "cases": 1908, "deaths": 3, "recovered": 25 },
+      { "id": "USA", "name": "USA", "cases": 1301, "deaths": 38, "recovered": 15 },
+      { "id": "GBR", "name": "United Kingdom", "cases": 460, "deaths": 8, "recovered": 19 },
+      { "id": "JPN", "name": "Japan", "cases": 639, "deaths": 16, "recovered": 118 }
+    ]
+  },
+  {
+    "date": "2020-03-20",
+    "global": { "cases": 272166, "deaths": 11299, "recovered": 87403 },
+    "countries": [
+      { "id": "CHN", "name": "China", "cases": 81250, "deaths": 3253, "recovered": 71266 },
+      { "id": "ITA", "name": "Italy", "cases": 47021, "deaths": 4032, "recovered": 4440 },
+      { "id": "USA", "name": "USA", "cases": 19624, "deaths": 260, "recovered": 147 },
+      { "id": "ESP", "name": "Spain", "cases": 20410, "deaths": 1043, "recovered": 1588 },
+      { "id": "DEU", "name": "Germany", "cases": 19848, "deaths": 67, "recovered": 180 },
+      { "id": "IRN", "name": "Iran", "cases": 19644, "deaths": 1433, "recovered": 6745 },
+      { "id": "FRA", "name": "France", "cases": 12612, "deaths": 450, "recovered": 1587 },
+      { "id": "KOR", "name": "South Korea", "cases": 8652, "deaths": 94, "recovered": 1540 },
+      { "id": "GBR", "name": "United Kingdom", "cases": 4014, "deaths": 177, "recovered": 65 },
+      { "id": "BRA", "name": "Brazil", "cases": 978, "deaths": 11, "recovered": 2 },
+      { "id": "JPN", "name": "Japan", "cases": 1007, "deaths": 35, "recovered": 215 }
+    ]
+  },
+  {
+    "date": "2020-03-31",
+    "global": { "cases": 857641, "deaths": 42006, "recovered": 177452 },
+    "countries": [
+      { "id": "USA", "name": "USA", "cases": 188172, "deaths": 3873, "recovered": 7024 },
+      { "id": "ITA", "name": "Italy", "cases": 105792, "deaths": 12428, "recovered": 15729 },
+      { "id": "ESP", "name": "Spain", "cases": 95923, "deaths": 8464, "recovered": 19259 },
+      { "id": "CHN", "name": "China", "cases": 82279, "deaths": 3309, "recovered": 76206 },
+      { "id": "DEU", "name": "Germany", "cases": 71808, "deaths": 775, "recovered": 16100 },
+      { "id": "FRA", "name": "France", "cases": 52827, "deaths": 3523, "recovered": 9444 },
+      { "id": "IRN", "name": "Iran", "cases": 44605, "deaths": 2898, "recovered": 14656 },
+      { "id": "GBR", "name": "United Kingdom", "cases": 25481, "deaths": 1793, "recovered": 135 },
+      { "id": "BRA", "name": "Brazil", "cases": 5717, "deaths": 201, "recovered": 127 },
+      { "id": "KOR", "name": "South Korea", "cases": 9786, "deaths": 162, "recovered": 5408 },
+      { "id": "JPN", "name": "Japan", "cases": 2178, "deaths": 57, "recovered": 424 },
+      { "id": "IND", "name": "India", "cases": 1397, "deaths": 35, "recovered": 123 },
+      { "id": "RUS", "name": "Russia", "cases": 2337, "deaths": 17, "recovered": 121 }
     ]
   }
 ]
