@@ -28,11 +28,12 @@ function animateValue(obj, start, end, duration) {
 }
 
 // Chart Initialization
-let trendChart1, trendChart2;
+let trendChart1, trendChart2, regionalChart;
 
 function initCharts() {
   const ctx1 = document.getElementById("trendBox1").getContext("2d");
   const ctx2 = document.getElementById("trendBox2").getContext("2d");
+  const ctx3 = document.getElementById("regionalChart").getContext("2d");
 
   // Common Chart Options
   const commonOptions = {
@@ -83,6 +84,50 @@ function initCharts() {
     },
     options: commonOptions,
   });
+
+  // Regional Bar Chart
+  regionalChart = new Chart(ctx3, {
+    type: "bar",
+    data: {
+      labels: [],
+      datasets: [{
+        label: "Cases",
+        data: [],
+        backgroundColor: [
+          "rgba(239, 68, 68, 0.8)",
+          "rgba(234, 179, 8, 0.8)",
+          "rgba(34, 197, 94, 0.8)",
+          "rgba(56, 189, 248, 0.8)",
+          "rgba(168, 85, 247, 0.8)"
+        ],
+        borderRadius: 6
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { display: false },
+        y: { 
+          ticks: { color: '#94a3b8', font: { size: 10 } },
+          grid: { display: false }
+        }
+      }
+    }
+  });
+}
+
+function updateRegionalChart(entry) {
+  if (!regionalChart || !entry) return;
+  
+  const top5 = [...entry.countries]
+    .sort((a, b) => b.cases - a.cases)
+    .slice(0, 5);
+  
+  regionalChart.data.labels = top5.map(c => c.name);
+  regionalChart.data.datasets[0].data = top5.map(c => c.cases);
+  regionalChart.update();
 }
 
 // Map variables
@@ -280,6 +325,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     renderCountryList(searchInput.value);
     updateMap(entry);
+    updateRegionalChart(entry);
   }
 
   // Event Listeners
