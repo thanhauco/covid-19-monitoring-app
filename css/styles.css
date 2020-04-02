@@ -296,6 +296,28 @@ input[type="range"] {
   accent-color: var(--accent-blue);
 }
 
+.speed-control {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  font-size: 0.8rem;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.2s;
+}
+
+.speed-control:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.speed-control option {
+  background: #1e293b;
+  color: white;
+}
+
 /* News Ticker */
 .news-ticker {
   height: 40px;

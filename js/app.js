@@ -258,6 +258,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     playBtn.innerText = isPlaying ? "⏸" : "▶";
 
     if (isPlaying) {
+      const speedSelector = document.getElementById("speed-selector");
+      const speed = parseInt(speedSelector.value) || 1000;
+      
       autoplayInterval = setInterval(() => {
         if (currentIndex < data.length - 1) {
           currentIndex++;
@@ -266,7 +269,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         } else {
           togglePlay(); // Stop at the end
         }
-      }, 1000);
+      }, speed);
     } else {
       clearInterval(autoplayInterval);
       autoplayInterval = null;
