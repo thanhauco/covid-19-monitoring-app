@@ -248,6 +248,41 @@ h1 {
   color: var(--text-secondary);
 }
 
+.rate-indicators {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.rate-item {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.rate-label {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.rate-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.rate-value.danger {
+  color: var(--accent-red);
+}
+
+.rate-value.success {
+  color: var(--accent-green);
+}
+
 /* Map Section */
 .map-section {
   position: relative;
