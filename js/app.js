@@ -316,6 +316,17 @@ document.addEventListener("DOMContentLoaded", async () => {
       500
     );
 
+    // Calculate and display rates
+    const fatalityRate = entry.global.cases > 0 
+      ? ((entry.global.deaths / entry.global.cases) * 100).toFixed(2) 
+      : 0;
+    const recoveryRate = entry.global.cases > 0 
+      ? ((entry.global.recovered / entry.global.cases) * 100).toFixed(2) 
+      : 0;
+    
+    document.getElementById("fatality-rate").textContent = fatalityRate + "%";
+    document.getElementById("recovery-rate").textContent = recoveryRate + "%";
+
     // Update Charts
     const history = data.slice(0, index + 1);
     trendChart1.data.labels = history.map((d) => d.date);
