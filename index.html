@@ -99,6 +99,31 @@
           <div class="spacer"></div>
           <h2>Top 5 Countries</h2>
           <canvas id="regionalChart"></canvas>
+          <div class="spacer"></div>
+          <h2>Analytics & Alerts</h2>
+          <div id="analytics-panel" class="analytics-container">
+            <div class="alert-item" id="growth-alert">
+              <span class="alert-icon">📈</span>
+              <div class="alert-content">
+                <span class="alert-title">Growth Rate</span>
+                <span class="alert-value" id="growth-rate-value">--</span>
+              </div>
+            </div>
+            <div class="alert-item" id="spike-alert">
+              <span class="alert-icon">⚠️</span>
+              <div class="alert-content">
+                <span class="alert-title">Spike Detection</span>
+                <span class="alert-value" id="spike-status">Monitoring...</span>
+              </div>
+            </div>
+            <div class="alert-item" id="hotspot-alert">
+              <span class="alert-icon">🔥</span>
+              <div class="alert-content">
+                <span class="alert-title">Hotspot</span>
+                <span class="alert-value" id="hotspot-country">--</span>
+              </div>
+            </div>
+          </div>
         </aside>
       </main>
       <footer class="news-ticker">

@@ -130,6 +130,77 @@ function updateRegionalChart(entry) {
   regionalChart.update();
 }
 
+// Anomaly Detection & Analytics
+function updateAnalytics(data, currentIndex) {
+  const growthRateEl = document.getElementById("growth-rate-value");
+  const spikeStatusEl = document.getElementById("spike-status");
+  const hotspotEl = document.getElementById("hotspot-country");
+  const spikeAlert = document.getElementById("spike-alert");
+  const growthAlert = document.getElementById("growth-alert");
+  
+  const entry = data[currentIndex];
+  if (!entry) return;
+  
+  // Calculate growth rate (day-over-day)
+  let growthRate = 0;
+  if (currentIndex > 0) {
+    const prevEntry = data[currentIndex - 1];
+    const prevCases = prevEntry.global.cases;
+    const currCases = entry.global.cases;
+    growthRate = prevCases > 0 ? ((currCases - prevCases) / prevCases * 100).toFixed(1) : 0;
+  }
+  
+  growthRateEl.textContent = growthRate > 0 ? `+${growthRate}%` : `${growthRate}%`;
+  
+  // Spike detection (>50% increase = critical, >25% = warning)
+  spikeAlert.classList.remove("critical", "warning");
+  if (growthRate > 50) {
+    spikeStatusEl.textContent = "🚨 CRITICAL SPIKE";
+    spikeStatusEl.className = "alert-value spike";
+    spikeAlert.classList.add("critical");
+  } else if (growthRate > 25) {
+    spikeStatusEl.textContent = "⚠️ Elevated";
+    spikeStatusEl.className = "alert-value spike";
+    spikeAlert.classList.add("warning");
+  } else if (growthRate > 10) {
+    spikeStatusEl.textContent = "Moderate";
+    spikeStatusEl.className = "alert-value";
+  } else {
+    spikeStatusEl.textContent = "Stable";
+    spikeStatusEl.className = "alert-value normal";
+  }
+  
+  // Growth rate severity
+  growthAlert.classList.remove("critical", "warning");
+  if (growthRate > 50) {
+    growthAlert.classList.add("critical");
+  } else if (growthRate > 25) {
+    growthAlert.classList.add("warning");
+  }
+  
+  // Identify hotspot (highest growth country)
+  if (currentIndex > 0) {
+    const prevEntry = data[currentIndex - 1];
+    let maxGrowth = 0;
+    let hotspot = "N/A";
+    
+    entry.countries.forEach(c => {
+      const prevCountry = prevEntry.countries.find(p => p.id === c.id);
+      if (prevCountry && prevCountry.cases > 0) {
+        const countryGrowth = (c.cases - prevCountry.cases) / prevCountry.cases * 100;
+        if (countryGrowth > maxGrowth && c.cases > 100) { // Min threshold
+          maxGrowth = countryGrowth;
+          hotspot = c.name;
+        }
+      }
+    });
+    
+    hotspotEl.textContent = hotspot + (maxGrowth > 0 ? ` (+${maxGrowth.toFixed(0)}%)` : "");
+  } else {
+    hotspotEl.textContent = entry.countries[0]?.name || "N/A";
+  }
+}
+
 // Map variables
 let svg, projection, path, countries;
 const colorScale = d3.scaleSequential(d3.interpolateYlOrRd).domain([0, 1000]);
@@ -340,6 +411,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     renderCountryList(searchInput.value);
     updateMap(entry);
     updateRegionalChart(entry);
+    updateAnalytics(data, index);
   }
 
   // Event Listeners
