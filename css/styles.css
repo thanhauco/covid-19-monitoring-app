@@ -401,6 +401,74 @@ input[type="range"] {
   100% { transform: translateX(-100%); }
 }
 
+/* Analytics Panel */
+.analytics-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.alert-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  border-left: 3px solid var(--accent-blue);
+  transition: all 0.3s ease;
+}
+
+.alert-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(4px);
+}
+
+.alert-item.warning {
+  border-left-color: var(--accent-yellow);
+}
+
+.alert-item.critical {
+  border-left-color: var(--accent-red);
+  animation: alertPulse 2s infinite;
+}
+
+@keyframes alertPulse {
+  0%, 100% { background: rgba(239, 68, 68, 0.05); }
+  50% { background: rgba(239, 68, 68, 0.15); }
+}
+
+.alert-icon {
+  font-size: 1.5rem;
+}
+
+.alert-content {
+  flex: 1;
+}
+
+.alert-title {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.alert-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.alert-value.spike {
+  color: var(--accent-red);
+}
+
+.alert-value.normal {
+  color: var(--accent-green);
+}
+
+
 /* Tooltip */
 .tooltip {
   position: absolute;
