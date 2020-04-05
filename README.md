@@ -1,8 +1,8 @@
 # 🦠 Pandemic Pulse - COVID-19 Monitoring Dashboard
 
-A real-time COVID-19 global monitoring dashboard built during the early days of the pandemic (February-March 2020). Features stunning glassmorphism design, interactive visualizations, and time-travel capabilities to replay the spread of the virus.
+A real-time COVID-19 global monitoring dashboard built during the early days of the pandemic (February-April 2020). Features stunning glassmorphism design, interactive visualizations, anomaly detection, and time-travel capabilities to replay the spread of the virus.
 
-![Dashboard Preview](https://img.shields.io/badge/Status-Active-success) ![Version](https://img.shields.io/badge/Version-1.0-blue) ![License](https://img.shields.io/badge/License-MIT-green)
+![Dashboard Preview](https://img.shields.io/badge/Status-Active-success) ![Version](https://img.shields.io/badge/Version-2.0-blue) ![License](https://img.shields.io/badge/License-MIT-green)
 
 ## ✨ Features
 
@@ -14,14 +14,16 @@ A real-time COVID-19 global monitoring dashboard built during the early days of 
 
 ### 📊 Real-Time Statistics
 
-- **Global Totals**: Cases, Active, Recovered, Deaths
-- **Animated Counters**: Smooth number transitions
+- **Global Totals**: Cases, Active, Recovered, Deaths with animated counters
+- **Fatality Rate**: Real-time mortality percentage calculation
+- **Recovery Rate**: Track recovery progress as a percentage
 - **Dynamic Calculations**: Active cases = Cases - Deaths - Recovered
 
 ### ⏱️ Time-Travel Engine
 
 - **Timeline Slider**: Scrub through pandemic timeline
 - **Auto-Play**: Watch the spread unfold automatically
+- **Speed Control**: 0.5x, 1x, 2x, 4x playback speeds
 - **Keyboard Controls**: Space to play/pause, arrows to navigate
 
 ### 📈 Charts & Analytics
@@ -30,18 +32,29 @@ A real-time COVID-19 global monitoring dashboard built during the early days of 
 - **Recovery Rate**: Track recoveries over time
 - **Top 5 Countries**: Horizontal bar chart of most affected regions
 
+### 🔍 Anomaly Detection & Analytics
+
+- **Growth Rate Tracking**: Day-over-day percentage change
+- **Spike Detection**: Automatic alerts for unusual increases
+  - 🟢 **Stable**: <10% growth
+  - 🟡 **Moderate**: 10-25% growth
+  - 🟠 **Elevated**: 25-50% growth (warning)
+  - 🔴 **Critical**: >50% growth (pulsing alert)
+- **Hotspot Identification**: Identifies country with highest growth rate
+- **Visual Alerts**: Color-coded severity indicators with animations
+
 ### 🎨 Premium Design
 
 - **Glassmorphism UI**: Frosted glass panels with backdrop blur
 - **3D Perspective**: Subtle tilt effect on the dashboard
 - **Virus Particles**: Ambient animated background
 - **Dark/Light Theme**: Toggle with persistence
+- **Animated Splash**: Dramatic intro sequence
 
-### 🔍 Advanced Features
+### 🔥 Advanced Features
 
 - **Country Search**: Filter countries instantly
 - **Country Modal**: Click any country for detailed stats and trend chart
-- **Animated Splash**: Dramatic intro sequence
 - **Breaking News Ticker**: Historical headlines from 2020
 
 ## ⌨️ Keyboard Shortcuts
@@ -88,9 +101,9 @@ A real-time COVID-19 global monitoring dashboard built during the early days of 
 covid-19-monitoring-app/
 ├── index.html              # Main application
 ├── css/
-│   └── styles.css          # Design system & animations
+│   └── styles.css          # Design system & animations (700+ lines)
 ├── js/
-│   ├── app.js              # Core application logic
+│   ├── app.js              # Core logic & analytics (550+ lines)
 │   ├── particles.js        # Ambient particle system
 │   └── theme.js            # Dark/Light theme toggle
 ├── data/
@@ -115,16 +128,38 @@ The dashboard includes data from **January 22, 2020** to **March 31, 2020**, cov
 
 This project was developed with a realistic Git workflow:
 
-- **12+ Pull Requests** merged into master
+- **15+ Pull Requests** merged into master
 - **Feature branches** for major components
 - **Bugfix branches** for issue resolution
 - **Conventional commits** for clear history
+
+### Key Milestones
+
+- **PR #1-4**: Foundation, data engine, theme, particles
+- **PR #5-8**: Search fix, tooltips, news ticker, 3D effects
+- **PR #9-12**: Country modal, extended data, active cases, regional chart
+- **PR #13-15**: Speed control, rate indicators, anomaly detection
 
 View the full history:
 
 ```bash
 git log --graph --oneline --all
 ```
+
+## 🧪 Analytics Features
+
+### Spike Detection Algorithm
+
+```javascript
+if (growthRate > 50)      → CRITICAL SPIKE (red pulsing alert)
+else if (growthRate > 25) → ELEVATED (yellow warning)
+else if (growthRate > 10) → MODERATE (blue)
+else                      → STABLE (green)
+```
+
+### Hotspot Algorithm
+
+Identifies the country with the highest day-over-day percentage increase, filtered by a minimum case threshold (>100 cases) to avoid false positives from small sample sizes.
 
 ## 🤝 Contributing
 
@@ -143,7 +178,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Thanh Vu**
 
 - GitHub: [@thanhauco](https://github.com/thanhauco)
-- Email: thanhauco@gmail.com
 
 ---
 
